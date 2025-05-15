@@ -1,0 +1,135 @@
+/* Footer Grid */
+.footer .grid {
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-wrap: nowrap; /* Prevent wrapping to ensure all boxes stay in one row */
+    gap: 1.5rem; /* Adjusted gap for better spacing */
+    justify-content: space-between; /* Distribute boxes evenly with space between */
+    padding: 1rem;
+    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+}
+
+/* Footer Box */
+.footer .grid .box {
+    flex: 1 1 calc(30% - 1.5rem); /* Adjust width to fit 4 boxes in one row */
+    max-width: 30%; /* Ensure boxes don't exceed 25% width */
+    border: 0.2rem solid #444; /* Softer border color */
+    padding: 4rem; /* Reduced padding for smaller boxes */
+    text-align: center;
+    background-color: #444; /* Darker background for better contrast */
+    border-radius: 0.5rem; /* Rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    height: 13rem;
+}
+
+@media (max-width: 1024px) {
+    .footer .grid {
+        flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    }
+    .footer .grid .box {
+        flex: 1 1 calc(48% - 1.5rem); /* Adjust to 2 boxes per row for medium screens */
+        max-width: 48%;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer .grid .box {
+        flex: 1 1 calc(100% - 1.5rem); /* Full width for smaller screens */
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer .grid .box {
+        flex: 1 1 100%; /* Full width for very small screens */
+        max-width: 100%;
+    }
+}
+
+/* Footer Box Image */
+.footer .grid .box img {
+    height: 7rem;
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 1rem; /* Increased spacing */
+    border-radius: 0.5rem; /* Rounded corners for images */
+}
+
+/* Footer Box Heading */
+.footer .grid .box h3 {
+    margin: 1rem 0;
+    font-size: 20px;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+/* Footer Box Text and Links */
+.footer .grid .box p,
+.footer .grid .box a {
+    display: block;
+    font-size: 1rem; /* Slightly smaller font size */
+    color: #FF8c79;
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.footer .grid .box a:hover {
+    color: pink; /* Highlight link on hover */
+    text-decoration: underline;
+}
+
+/* Footer Container */
+.footer {
+    padding: 3rem 0; /* Removed horizontal padding */
+    text-align: center;
+    background: #222; /* Darker background */
+    color: #fff;
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    border-top: 0.2rem solid #444; /* Top border for separation */
+    width: 100%; /* Ensure the footer spans the full width of the screen */
+    margin: 0; /* Remove any default margin */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+/* Footer Text */
+.footer span {
+    color: #ff9800; /* Highlighted text color */
+    font-weight: bold;
+}
+
+/* Social Media Icons */
+.footer .social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer .social-icons a {
+    color: #fff;
+    font-size: 2rem;
+    transition: color 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+    color: #ff9800; /* Highlight icon on hover */
+}
+
+/* Loader */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000000;
+    background: linear-gradient(to bottom, #682020, #381820);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader img {
+    height: 25rem;
+}

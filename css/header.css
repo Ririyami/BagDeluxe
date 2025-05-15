@@ -1,0 +1,224 @@
+.header {
+    position: center;
+    top: 0;
+    margin: none;
+    z-index: 2000;
+    background-color: #381820; /* Top/navbar/header background color */
+    
+ }
+ 
+ .header .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+ }
+ 
+ .header .flex .logo {
+
+    align-items: center;
+ }
+ 
+ /*.header .flex .logo:hover {
+    color: pink;
+ }*/
+ 
+ .header .flex .navbar a {
+    font-size: 30px;
+    color: white;
+    margin:  1rem;
+    text-decoration: none;
+
+ }
+ 
+ .header .flex .navbar a:hover {
+    color: white;
+    background-color:#5a1e2d;
+    padding: 1rem 0.6rem;
+    border-radius: 5px;
+    text-decoration: none;
+   
+ }
+ 
+ .header .flex .icons > * {
+    margin-left: 1.5rem;
+    margin-right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+ }
+ 
+ .header .flex .icons > *:hover {
+    color: #5a1e2d;
+ }
+ 
+ .header .flex .icons span {
+    font-size: 2rem;
+ }
+ 
+ #menu-btn {
+    display: none;
+ }
+ 
+ .header .flex .profile {
+    background-color: #632c2c; /* Background color of the dropdown */
+    border: .2rem solid #381820; /* Border color */
+    padding: 1.5rem;
+    text-align: center;
+    position: absolute;
+    top: 125%;
+    right: 2rem;
+    width: 30rem;
+    display: none;
+    animation: fadeIn 0.2s linear;
+ }
+ 
+ .header .flex .profile.active {
+    display: inline-block;
+ }
+ 
+ @keyframes fadeIn {
+    0% {
+       transform: translateY(1rem);
+    }
+ }
+ 
+ .header .flex .profile .name {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 0.5rem;
+ }
+ 
+ .header .flex .profile .account {
+    font-size: 2rem;
+    color: #777; /* Text color for "login or register" */
+ }
+ 
+ .header .flex .profile .account a {
+    color: #ffffff; /* Link color */
+ }
+ 
+ .header .flex .profile .account a:hover {
+    color: #ffffff; /* Link hover color */
+    text-decoration: underline;
+ }
+ .loader{
+   position: fixed;
+   top:0; left:0; right:0; bottom: 0;
+   z-index: 1000000;
+   background-color: white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.loader img{
+  height: 25rem;
+}
+
+/* Profile Section */
+.profile {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.profile.active {
+    display: block; /* Show when active */
+}
+
+.profile .btn,
+.profile .delete-btn {
+    display: inline-block;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    background: #381820;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.profile .btn:hover,
+.profile .delete-btn:hover {
+    background: #5a1e2d; /* Lighter pink on hover */
+}
+
+.profile .name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.profile .account {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.profile .account a {
+    color: #682020;
+    text-decoration: none;
+}
+
+.profile .account a:hover {
+    text-decoration: underline;
+}
+
+/* Search Bar Container */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff; /* White background */
+    border-radius: 50px; /* Rounded edges */
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    width: 300px; /* Adjust width as needed */
+    margin: 0 auto; /* Center the search bar */
+    position: relative;
+}
+
+/* Search Input */
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 50px;
+    color: #333; /* Text color */
+    background-color: transparent; /* Transparent background */
+}
+
+/* Placeholder Text */
+.search-input::placeholder {
+    color: #aaa; /* Placeholder text color */
+    font-style: italic;
+}
+
+/* Search Button */
+.search-btn {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #333; /* Icon color */
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+/* Search Button Hover Effect */
+.search-btn:hover {
+    color: #381820; /* Darker color on hover */
+}
