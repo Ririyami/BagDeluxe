@@ -1,0 +1,234 @@
+/* General body styling */
+body {
+   font-family: 'Poppins', sans-serif; /* Modern and clean font */
+   background-color: #fef6e4; /* Soft cream background */
+   margin: 0;
+   padding: 0;
+   color: #333; /* Neutral text color */
+}
+
+/* Section headings */
+h1.heading, h2, h3 {
+   font-size: 2rem;
+   color: #805858;; /* Coral pink */
+   text-align: center;
+   margin-bottom: 20px;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+}
+
+/* Form styling */
+form {
+   background-color: #ffffff; /* White background */
+   padding: 20px;
+   border-radius: 15px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+   max-width: 500px;
+   margin: 20px auto;
+   border: 2px solid #ff6f61; /* Coral pink border */
+}
+
+form h3 {
+   font-size: 1.5rem;
+   margin-bottom: 15px;
+   color: #ff6f61; /* Coral pink */
+}
+
+form .box {
+   width: 100%;
+   padding: 10px;
+   margin: 10px 0;
+   border: 1px solid #ddd;
+   border-radius: 10px;
+   font-size: 1rem;
+}
+
+form .btn {
+   background-color: #ff6f61; /* Coral pink */
+   color: #fff;
+   padding: 10px 15px;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+   font-size: 1rem;
+   text-transform: uppercase;
+   transition: background-color 0.3s ease;
+}
+
+form .btn:hover {
+   background-color: #e85b50; /* Slightly darker coral */
+}
+
+/* Product display styling */
+.box-container {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
+   justify-content: center;
+   margin-top: 20px;
+}
+
+.box {
+   background-color: #ffffff; /* White background */
+   border: 2px solid #ff6f61; /* Coral pink border */
+   border-radius: 15px;
+   padding: 15px;
+   width: 300px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+   text-align: center;
+}
+
+.box img {
+   max-width: 100%;
+   border-radius: 10px;
+   margin-bottom: 10px;
+}
+
+.box .name {
+   font-size: 1.2rem;
+   font-weight: bold;
+   color: #ff6f61; /* Coral pink */
+   margin: 10px 0;
+}
+
+.box .price {
+   font-size: 1.1rem;
+   color: #28a745; /* Green for price */
+   margin-bottom: 10px;
+}
+
+.box .flex-btn {
+   display: flex;
+   justify-content: space-between;
+   gap: 10px;
+}
+
+.box .option-btn, .box .delete-btn {
+   padding: 8px 12px;
+   border: none;
+   border-radius: 10px;
+   cursor: pointer;
+   font-size: 0.9rem;
+   text-transform: uppercase;
+   transition: background-color 0.3s ease;
+}
+
+.box .option-btn {
+   background-color: #ffc107; /* Yellow */
+   color: #fff;
+}
+
+.box .option-btn:hover {
+   background-color: #e0a800; /* Darker yellow */
+}
+
+.box .delete-btn {
+   background-color: #dc3545; /* Red */
+   color: #fff;
+}
+
+.box .delete-btn:hover {
+   background-color: #c82333; /* Darker red */
+}
+
+/* Table styling for inventory */
+table {
+   width: 100%;
+   border-collapse: collapse;
+   margin: 20px 0;
+   font-size: 1rem;
+   text-align: left;
+   background-color: #ffffff; /* White background */
+   border-radius: 10px;
+   overflow: hidden;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+table th, table td {
+   border: 1px solid #ddd;
+   padding: 10px;
+}
+
+table th {
+   background-color: #ff6f61; /* Coral pink */
+   color: #fff;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+table .empty {
+   text-align: center;
+   color: #999;
+}
+
+/* Message styling */
+.message {
+   background-color: #fff4e6; /* Light peach */
+   color: #ff6f61; /* Coral pink */
+   padding: 10px;
+   border: 1px solid #ff6f61; /* Coral pink border */
+   border-radius: 10px;
+   margin-bottom: 10px;
+   text-align: center;
+   font-size: 1rem;
+}
+button.edit:focus,
+button.remove:focus,
+button.cancel:focus {
+    outline: none;
+}
+
+table td a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+table td a.edit {
+    background-color: #4CAF50; /* Green */
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+table td a.remove {
+    background-color: #f44336; /* Red */
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+table td a.cancel {
+    background-color: #f1f1f1; /* Light gray */
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #333;
+}
+
+table td a.edit:hover {
+    background-color: #45a049;
+}
+
+table td a.remove:hover {
+    background-color: #e53935;
+}
+
+table td a.cancel:hover {
+    background-color: #ddd;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+   .box-container {
+      flex-direction: column;
+      align-items: center;
+   }
+
+   form {
+      width: 90%;
+   }
+
+   table {
+      font-size: 0.9rem;
+   }
+}
