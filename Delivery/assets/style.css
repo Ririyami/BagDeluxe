@@ -1,1 +1,306 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+.header {
+    background-color: #d9534f;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Profile Section */
+.profile {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #d9534f;
+}
+
+.profile h2 {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Orders Section */
+.orders-container {
+    max-width: 90%;
+    margin: 15px auto;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.order h3 {
+    margin: 0;
+    color: #d9534f;
+    font-size: 16px;
+}
+
+.order p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.view-receipt {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #d9534f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.view-receipt:hover {
+    background-color: #c9302c;
+}
+
+/* Sidebar (Always Visible) */
+.dashboard {
+    width: 200px;
+    background-color: #d9534f;
+    color: white;
+    height: 100vh;
+    padding: 15px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0; /* Always visible */
+    z-index: 1000;
+    transition: none; /* No transition needed */
+}
+
+.dashboard h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.dashboard a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    background-color: #c9302c;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.dashboard a.logout {
+    margin-top: 15px;
+    background-color: #c9302c;
+}
+
+/* Content */
+.content {
+    margin-left: 220px; /* Adjust content to account for the sidebar */
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* Toggle Button */
+.toggle-dashboard {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+/* Scan Container */
+.scan-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.scan-container h2 {
+    font-size: 18px;
+    color: #d9534f;
+    margin-bottom: 20px;
+}
+
+.scan-container form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.scan-container input[type="text"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 70%;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+.scan-container button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.scan-container button:hover {
+    background-color: #c9302c;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .dashboard {
+        width: 100%; /* Full width on mobile */
+        height: auto;
+        position: relative;
+    }
+
+    .content {
+        margin-left: 0; /* No margin on mobile */
+        padding: 10px;
+    }
+
+    .header {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .profile img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile h2 {
+        font-size: 14px;
+    }
+
+    .orders-container {
+        padding: 10px;
+    }
+
+    .order {
+        padding: 10px;
+    }
+
+    .order h3 {
+        font-size: 14px;
+    }
+
+    .order p {
+        font-size: 12px;
+    }
+
+    .view-receipt {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .scan-container {
+        padding: 15px;
+    }
+
+    .scan-container h2 {
+        font-size: 16px;
+    }
+
+    .scan-container input[type="text"] {
+        width: 100%; /* Full width on mobile */
+    }
+
+    .scan-container button {
+        width: 100%; /* Full width on mobile */
+    }
+}
+/* Login Panel */
+.login-container {
+    max-width: 400px;
+    margin: 60px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #d9534f;
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #c9302c;
+}
+
+.login-container p.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
 
