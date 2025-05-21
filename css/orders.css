@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
+
+:root {
+  --main-color: #5a1e2d;
+  --accent-color: #b4865a;
+  --sidebar-bg: #381820;
+  --sidebar-active: #a87d6d;
+  --sidebar-hover: #61303c;
+  --white: #fff;
+  --beige: #fdf6ee;
+  --border: 0.2rem solid #805858;
+  --box-shadow: 0 .5rem 1rem rgba(0,0,0,.06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+}
+
+body {
+  background: var(--main-color);
+  min-height: 100vh;
+}
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  border-right: var(--border);
+  box-shadow: var(--box-shadow);
+}
+
+.sidebar .logo {
+  color: var(--accent-color);
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 1.5rem 0 2rem 1.5rem;
+}
+
+.sidebar nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.sidebar nav a {
+  font-size: 1.45rem;
+  color: var(--beige);
+  padding: 1.1rem 2rem;
+  border-left: 3px solid transparent;
+  background: none;
+  transition: background 0.2s, color 0.2s, border-left 0.2s;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:focus {
+  background: var(--sidebar-active);
+  color: var(--main-color);
+  border-left: 3px solid var(--accent-color);
+  font-weight: bold;
+}
+
+.sidebar nav a:hover {
+  background: var(--sidebar-hover);
+  color: var(--accent-color);
+}
+
+/* ========== MAIN CONTENT ========== */
+.main-content {
+  margin-left: 220px;
+  padding: 3rem 2.5rem;
+  background: var(--main-color);
+  min-height: 100vh;
+  transition: margin-left .3s;
+}
+
+.heading {
+  color: var(--accent-color);
+  font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  letter-spacing: 1px;
+}
+
+
+/* ========== ORDERS TABLE ========== */
+.orders-table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 0 auto;
+  background: none;
+}
+
+.orders-table {
+  min-width: 760px;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--beige);
+  border-radius: 7px;
+  box-shadow: var(--box-shadow);
+  font-size: 1.01rem;
+}
+
+.orders-table thead {
+  background: var(--sidebar-bg);
+  color: var(--accent-color);
+}
+
+.orders-table thead th {
+  padding: 0.75rem 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 1.02rem;
+  border-bottom: 1px solid #d6bfa7;
+  white-space: nowrap;
+}
+
+.orders-table tbody tr {
+  transition: background 0.2s;
+}
+
+.orders-table tbody tr:hover {
+  background: #f4e5dc;
+}
+
+.orders-table tbody td {
+  padding: .7rem 0.5rem;
+  padding-left: 1.4rem; /* ADDED: Give more left padding to all cells */
+  font-size: .98rem;
+  color: var(--main-color);
+  border-bottom: 1px solid #e3c9b4;
+  vertical-align: top;
+  text-align: left;
+  word-break: break-word;
+}
+
+.orders-table tbody td:first-child {
+  padding-left: 1.6rem; /* ADDED: Even more left padding for first column (ex: name) */
+}
+
+.orders-table tbody td:last-child {
+  text-align: center;
+}
+
+.orders-table img {
+  display: block;
+  margin: 0 auto;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid #eedac6;
+  border-radius: 0.3rem;
+}
+
+.orders-table select,
+.orders-table .btn {
+  padding: .3rem .6rem;
+  font-size: .89rem;
+  border-radius: .3rem;
+  border: 1px solid #d9c7b4;
+  background: var(--beige);
+  color: var(--main-color);
+  margin-bottom: .1rem;
+  margin-right: .2rem;
+}
+
+.orders-table .btn {
+  background: var(--main-color);
+  color: var(--beige);
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: .1rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.orders-table .btn:hover {
+  background: var(--sidebar-bg);
+  color: var(--accent-color);
+}
+
+.orders-table .status-badge {
+  display: inline-block;
+  padding: .13rem .6rem;
+  border-radius: 1rem;
+  font-size: .9rem;
+  font-weight: 600;
+  background: var(--sidebar-active);
+  color: var(--main-color);
+  margin-right: .1rem;
+}
+.orders-table .status-badge.completed {
+  background: #7eb386;
+  color: #205a1e;
+}
+.orders-table .status-badge.pending {
+  background: #ffd6b0;
+  color: #ad7d48;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    border-right: none;
+    border-bottom: var(--border);
+  }
+  .sidebar nav {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+  }
+  .sidebar nav a {
+    padding: 1rem 1.6rem;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    font-size: 1.3rem;
+  }
+  .sidebar nav a.active,
+  .sidebar nav a:focus {
+    border-left: none;
+    border-bottom: 3px solid var(--accent-color);
+    background: var(--sidebar-active);
+    color: var(--main-color);
+  }
+  .main-content {
+    margin-left: 0;
+    padding: 1.5rem 0.4rem;
+  }
+  .orders-table-container {
+    padding: 0 .1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .orders-table {
+    min-width: 620px;
+    font-size: .88rem;
+  }
+  .orders-table thead th,
+  .orders-table tbody td {
+    padding: .3rem .15rem;
+    font-size: .87rem;
+  }
+  .orders-table tbody td,
+  .orders-table tbody td:first-child {
+    padding-left: .7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar .logo {
+    font-size: 1.7rem;
+    margin: 1rem;
+  }
+  .sidebar nav a {
+    font-size: 1.1rem;
+    padding: .7rem .9rem;
+  }
+  .main-content {
+    padding: .7rem .1rem;
+  }
+  .heading {
+    font-size: 1.3rem;
+  }
+  .orders-table {
+    min-width: 485px;
+    font-size: .78rem;
+  }
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+  width: .8rem;
+  height: .6rem;
+  background: var(--sidebar-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 1rem;
+}
