@@ -1,22 +1,49 @@
 <?php
-// Enable error reporting for debugging
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Writer\PngWriter;
+
+// Enable error reporting
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Get order_id from GET, sanitize it
-$order_id = isset($_GET['order_id']) ? htmlspecialchars($_GET['order_id']) : '0';
+if (!file_exists(__DIR__ . '/vendor/autoload.php')) {
+    die('Composer autoload.php file is missing. Please run "composer install".');
+}
 
-// Build the URL that the QR code will point to
-// Replace this with your actual live URL, not localhost
-$url = "https://msoshub.com/__bagdeluxe/Delivery/update_order_status.php?order_id=" . urlencode($order_id);
+try {
+    // Get the order ID from the query string
+    $order_id = isset($_GET['order_id']) ? htmlspecialchars($_GET['order_id']) : '0';
 
-// Create Google Chart API URL for QR code image
-$qr_code_url = "https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=" . urlencode($url) . "&chld=L|1";
+    // Construct the URL to encode in the QR code
+    $url = "http://localhost/bagdeluxe/Delivery/update_order_status.php?order_id=" . urlencode($order_id);
 
-// Set header for image output
-header('Content-Type: image/png');
+    // Create QrCode object with the URL
+    $qrCode = new QrCode($url);
 
-// Fetch the QR code image from Google and output it directly
-echo file_get_contents($qr_code_url);
-?>
+    // Create a writer instance
+    $writer = new PngWriter();
+
+    // Render QR code with size and margin set in the write() options array
+    $result = $writer->write(
+        $qrCode,
+        null, // no logo
+        null, // no label
+        [
+            'size' => 200,
+            'margin' => 10
+        ]
+    );
+
+    // Output as PNG
+    header('Content-Type: image/png');
+    echo $result->getString();
+} catch (Exception $e) {
+    error_log("QR Code Generation Error: " . $e->getMessage());
+    if (!headers_sent()) {
+        header('Content-Type: text/plain');
+    }
+    echo "Error generating QR code: " . $e->getMessage();
+}
