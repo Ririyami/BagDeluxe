@@ -23,6 +23,10 @@ if (!$user) {
     echo "<p style='color:red;'>User not found!</p>";
     exit;
 }
+
+// Generate QR Code URL using Google API
+$qr_target_url = "https://msoshub.com/__bagdeluxe/Delivery/update_order_status.php?order_id=" . urlencode($order_id);
+$google_qr_url = "https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=" . urlencode($qr_target_url) . "&chld=L|1";
 ?>
 
 <!DOCTYPE html>
@@ -63,36 +67,26 @@ if (!$user) {
             text-align: center;
             margin: 20px 0;
         }
-        .print-btn {
-            display: block;
-            width: 100%;
+        .print-btn, .back-btn {
             text-align: center;
             margin-top: 20px;
         }
-        .print-btn button {
+        .print-btn button, .back-btn button {
             padding: 10px 20px;
-            background-color: #007BFF;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+        }
+        .print-btn button {
+            background-color: #007BFF;
         }
         .print-btn button:hover {
             background-color: #0056b3;
         }
-        .back-btn {
-            text-align: center;
-            margin-top: 20px;
-        }
         .back-btn button {
-            padding: 10px 20px;
             background-color: #6c757d;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
         }
         .back-btn button:hover {
             background-color: #5a6268;
@@ -122,11 +116,10 @@ if (!$user) {
     <p><strong>Payment Status:</strong> <?= htmlspecialchars($order['payment_status']) ?></p>
     <hr>
 
-   <!-- QR Code -->
-<div class="barcode">
- <img src="qr_generator.php?order_id=<?php echo $order_id; ?>" alt="QR Code">
-</div>
-
+    <!-- QR Code -->
+    <div class="barcode">
+        <img src="<?= $google_qr_url ?>" alt="QR Code for Order <?= htmlspecialchars($order['id']) ?>">
+    </div>
 
     <!-- Print Button -->
     <div class="print-btn">
@@ -134,10 +127,8 @@ if (!$user) {
     </div>
 
     <!-- Back Button -->
-    <div class="back-btn" style="text-align: center; margin-top: 20px;">
-        <button onclick="window.location.href='driver_home.php'" style="padding: 10px 20px; background-color: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
-            Back to Home
-        </button>
+    <div class="back-btn">
+        <button onclick="window.location.href='driver_home.php'">Back to Home</button>
     </div>
 </div>
 </body>
