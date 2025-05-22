@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_SESSION['cart'][$removeIndex])) {
             unset($_SESSION['cart'][$removeIndex]);
             $_SESSION['cart'] = array_values($_SESSION['cart']); // Reindex
-            echo "<script>location.reload();</script>";
+            // No redirect, just let the sidebar update via page refresh or form submit
+            header("Location: " . strtok($_SERVER['REQUEST_URI'], '?'));
             exit;
         }
     }
@@ -18,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Handle clearing all cart items
     if (isset($_POST['clear_all'])) {
         unset($_SESSION['cart']);
-        echo "<script>location.reload();</script>";
+        header("Location: " . strtok($_SERVER['REQUEST_URI'], '?'));
         exit;
     }
 }
@@ -27,10 +28,11 @@ $cart = $_SESSION['cart'] ?? [];
 $total = 0;
 ?>
 
-<!-- Toggle Button (Visible only on mobile) -->
+<!-- Toggle Button (Always visible for toggling) -->
 <button class="toggle-sidebar-btn" onclick="toggleSidebar()">🛒 View Cart</button>
 
-<div class="checkout-sidebar" id="checkoutSidebar">
+<div class="checkout-sidebar hidden" id="checkoutSidebar">
+    <button class="close-sidebar-btn" onclick="toggleSidebar()" style="float:right;background:none;border:none;font-size:20px;cursor:pointer;">&times;</button>
     <h2>Order Summary</h2>
 
     <?php if (!empty($cart)): ?>
@@ -44,7 +46,7 @@ $total = 0;
                 <p class="name"><?= htmlspecialchars($item['name']) ?></p>
                 <p>₱<?= number_format($item['price'], 0); ?> x <?= $item['qty']; ?></p>
                 <p><strong>Total:</strong> ₱<?= number_format($itemTotal, 0); ?></p>
-                <form method="post" class="remove-form">
+                <form method="post" class="remove-form" style="display:inline;">
                     <input type="hidden" name="remove_index" value="<?= $index ?>">
                     <button type="submit" class="remove-btn" title="Remove">Remove</button>
                 </form>
@@ -62,9 +64,8 @@ $total = 0;
             </form>
 
             <form action="sync_cart.php" method="post">
-    <button type="submit" class="checkout-btn">Checkout</button>
-</form>
-
+                <button type="submit" class="checkout-btn">Checkout</button>
+            </form>
         </div>
     <?php else: ?>
         <p class="empty-cart">Your cart is empty.</p>
@@ -92,8 +93,12 @@ $total = 0;
     transform: translateX(100%);
 }
 
+.checkout-sidebar.active {
+    transform: translateX(0);
+}
+
 .toggle-sidebar-btn {
-    display: none;
+    display: block;
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -105,6 +110,17 @@ $total = 0;
     font-size: 16px;
     z-index: 1001;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.close-sidebar-btn {
+    display: block;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    float: right;
+    cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .cart-item {
@@ -182,6 +198,8 @@ $total = 0;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
+    border: none;
+    margin-top: 10px;
 }
 
 .empty-cart {
@@ -211,5 +229,6 @@ $total = 0;
 function toggleSidebar() {
     const sidebar = document.getElementById('checkoutSidebar');
     sidebar.classList.toggle('active');
+    sidebar.classList.toggle('hidden');
 }
 </script>
