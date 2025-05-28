@@ -51,7 +51,7 @@ if (isset($message)) {
 
       <a href="home.php" class="logo">
          <img src="images/Wbdlogog.png" alt="Logo" style="height: 90px; vertical-align: middle; margin-left: 30px;">
-         <img src="images/5556.png" alt="Logo" style="height: 75px; vertical-align: middle; margin-left: 2px;">
+         <img src="images/5551.png" alt="Logo" style="height: 50px; vertical-align: middle; margin-left: 1px;">
       </a>
 
       <nav class="navbar">
@@ -71,6 +71,13 @@ if (isset($message)) {
 
       <div class="profile">
          <?php if (isset($user_id) && !empty($user_id) && $fetch_profile) { ?>
+            <div class="user-img-container">
+               <?php if (!empty($fetch_profile['profile_picture'])) { ?>
+                  <img src="user_imgs/<?= htmlspecialchars($fetch_profile['profile_picture']); ?>" alt="User Image">
+               <?php } else { ?>
+                  <img src="images/default-avatar.png" alt="Default Avatar">
+               <?php } ?>
+            </div>
             <p class="name"><?= htmlspecialchars($fetch_profile['name']); ?></p>
             <div class="flex">
                <a href="profile.php" class="btn">profile</a>

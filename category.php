@@ -154,6 +154,49 @@ $category = $_GET['category'] ?? '';
       width: 100%;
       text-align: center;
    }
+
+   /* Brand filter styles */
+   .brand-filter {
+      margin-bottom: 32px;
+      text-align: center;
+   }
+   .brand-filter h2 {
+      font-size: 1.2em;
+      color: #7d2626;
+      margin-bottom: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+   }
+   .brand-filter-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      align-items: stretch;
+      margin-bottom: 10px;
+   }
+   .brand-filter-box {
+      background: #fff;
+      border-radius: 12px;
+      border: 2px solid #39303025;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      padding: 12px 24px;
+      text-align: center;
+      font-size: 1.08em;
+      font-weight: bold;
+      color: #7d2626;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      min-width: 120px;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   .brand-filter-box:hover, .brand-filter-box.active {
+      background: #f5eaea;
+      color: #9d3434;
+   }
    </style>
 </head>
 <body>
@@ -175,17 +218,17 @@ $category = $_GET['category'] ?? '';
    <?php if (isset($_GET['category'])): ?>
       <div class="brand-filter">
          <h2>Select a Brand</h2>
-         <div class="box-container">
-            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Celine" class="box"><h3>Celine</h3></a>
-            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Chanel" class="box"><h3>Chanel</h3></a>
-            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Chloé" class="box"><h3>Chloé</h3></a>
-            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Christian_Dior" class="box"><h3>Christian Dior</h3></a>
-            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Fendi" class="box"><h3>Fendi</h3></a>
-            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Gucci" class="box"><h3>Gucci</h3></a>
-            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Hermès" class="box"><h3>Hermès</h3></a>
-            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Louis_Vuitton" class="box"><h3>Louis Vuitton</h3></a>
-            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Prada" class="box"><h3>Prada</h3></a>
-            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Saint_Laurent" class="box"><h3>Saint Laurent</h3></a>
+         <div class="brand-filter-container">
+            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Celine" class="brand-filter-box<?= (isset($_GET['brand']) && $_GET['brand'] == 'Celine') ? ' active' : '' ?>"><h3>Celine</h3></a>
+            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Chanel" class="brand-filter-box<?= (isset($_GET['brand']) && $_GET['brand'] == 'Chanel') ? ' active' : '' ?>"><h3>Chanel</h3></a>
+            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Chloé" class="brand-filter-box<?= (isset($_GET['brand']) && $_GET['brand'] == 'Chloé') ? ' active' : '' ?>"><h3>Chloé</h3></a>
+            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Christian_Dior" class="brand-filter-box<?= (isset($_GET['brand']) && $_GET['brand'] == 'Christian_Dior') ? ' active' : '' ?>"><h3>Christian Dior</h3></a>
+            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Fendi" class="brand-filter-box<?= (isset($_GET['brand']) && $_GET['brand'] == 'Fendi') ? ' active' : '' ?>"><h3>Fendi</h3></a>
+            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Gucci" class="brand-filter-box<?= (isset($_GET['brand']) && $_GET['brand'] == 'Gucci') ? ' active' : '' ?>"><h3>Gucci</h3></a>
+            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Hermès" class="brand-filter-box<?= (isset($_GET['brand']) && $_GET['brand'] == 'Hermès') ? ' active' : '' ?>"><h3>Hermès</h3></a>
+            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Louis_Vuitton" class="brand-filter-box<?= (isset($_GET['brand']) && $_GET['brand'] == 'Louis_Vuitton') ? ' active' : '' ?>"><h3>Louis Vuitton</h3></a>
+            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Prada" class="brand-filter-box<?= (isset($_GET['brand']) && $_GET['brand'] == 'Prada') ? ' active' : '' ?>"><h3>Prada</h3></a>
+            <a href="category.php?category=<?= urlencode($_GET['category']); ?>&brand=Saint_Laurent" class="brand-filter-box<?= (isset($_GET['brand']) && $_GET['brand'] == 'Saint_Laurent') ? ' active' : '' ?>"><h3>Saint Laurent</h3></a>
          </div>
       </div>
    <?php endif; ?>

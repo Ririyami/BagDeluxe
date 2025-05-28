@@ -19,6 +19,10 @@ if (isset($_POST['assign_driver'])) {
 
     $message[] = 'Driver assigned successfully!';
 }
+
+if (isset($_GET['message'])) {
+    $message[] = $_GET['message'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -128,7 +132,7 @@ if (isset($_POST['assign_driver'])) {
 </section>
 
 <!-- Custom JS File Link -->
-<script src="../js/admin_script.js"></script>
+<script src="../js/admin_script.js"><s/script>
 
 </body>
 </html>

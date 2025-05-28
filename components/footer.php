@@ -1,40 +1,61 @@
+
 <link rel="stylesheet" href="css/footer.css">
 <footer class="footer">
+  <section class="footer-grid">
+    <div class="footer-box">
+      <h3>About us</h3>
+      <ul>
+        <li><a href="about.php">About us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Official Store</a></li>
+        <li><a href="#">Join us</a></li>
+      </ul>
+    </div>
+    <div class="footer-box">
+      <h3>Support</h3>
+      <ul>
+        <li><a href="#">Shipping & Return</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">F.A.Qs</a></li>
+      </ul>
+    </div>
+    <div class="footer-box">
+      <h3>My account</h3>
+      <ul>
+        <li><a href="login.php">Login</a></li>
+        <li><a href="register.php">Register</a></li>
+        <li><a href="orders.php">Order History</a></li>
+        <li><a href="checkout.php">Check out</a></li>
+      </ul>
+    </div>
+    <div class="footer-box newsletter">
+      <h3>Newsletter</h3>
+      <p>Make sure that youre always the first who receive our latest news and promotions</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email..." required>
+        <button type="submit">REGISTER</button>
+      </form>
+    </div>
+  </section>
+  <div class="footer-bar">
+    <div class="footer-copyright">
+      Copyright &copy; 2025 <span>BagDeluxe</span>. All Rights Reserved.
+    </div>
+    <div class="footer-social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </div>
+</footer>
 
-   <section class="grid">
-
-      <div class="box">
-         <img src="images/mail.png" alt="">
-         <h3>email us:</h3>
-         <a href="@gmail.com">bagdeluxe@gmail.com</a>
-      </div>
-
-      <div class="box">
-         <img src="images/clock.png" alt="">
-         <h3>opening hours</h3>
-         <p>06:00am to 10:00pm</p>
-      </div>
-
-      <div class="box">
-         <img src="images/address.png" alt="">
-         <h3>address</h3>
-         <a href="#">Poblacion, Liloan, Cebu </a>
-      </div>
-
-      <div class="box">
-         <img src="images/phone.png" alt="">
-         <h3>contact us:</h3>
-         <a href="tel:1234567890">123-456-7890</a>
-      </div>
 
    </section>
-   <div class="loader">
+   
+  <!-- <div class="loader">
    <img src="images/bdlogo.gif" alt="">
-</div>
+</div> -->
 
-   <div class="rights">
-      &copy; 2025 <span>AICE</span>. All rights reserved.
-   </div>
-
-</footer>
 

@@ -28,7 +28,7 @@ body {
 
 .hero .swiper-slide .content {
     position: absolute;
-    top: 650px; /*for shopnow btn*/
+    top: 750px; /*for shopnow btn*/
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -44,7 +44,7 @@ body {
     border-radius: 20px;
     font-size: 1.8rem;
     font-weight: bold;
-    transition: all 0.3s ease;
+    transition: all 20s ease;
     
 }
 
@@ -53,6 +53,38 @@ body {
     color: white;
     box-shadow: 0 0 10px rgba(255, 20, 147, 0.8);
 }
+
+.luxe-picks-section {
+  background: #6d2323;
+  color: #f9ede7;
+  text-align: center;
+  padding: 48px 16px 40px 16px;
+}
+
+.luxe-picks-section h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+.luxe-divider {
+  width: 120px;
+  border: none;
+  border-top: 3px solid #f9ede7;
+  margin: 0 auto 32px auto;
+}
+
+.luxe-picks-section h2 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 0;
+  color: #fff;
+  line-height: 1.4;
+}
+
 
 .hero .slide {
     display: flex;
@@ -131,26 +163,26 @@ body {
     margin: 0 auto;
 }
 .category .box a {
-    text-decoration: none; /* Remove underline for links */
-    color: inherit; /* Inherit the text color */
+    text-decoration: none; 
+    color: inherit; 
 }
 
 .category .box a:visited {
-    text-decoration: none; /* Remove underline for visited links */
+    text-decoration: none;
 }
 
 .category .box a:hover {
-    text-decoration: none; /* Remove underline on hover */
+    text-decoration: none; 
 }
 
 .category .box a:active {
-    text-decoration: none; /* Remove underline when active */
+    text-decoration: none; 
 }
 
 .category .box {
     width: 200px;
     height: 200px;
-    border: 5px solid #3e1111; /* Add a bold border */
+    border: 5px solid #3e1111; 
     border-radius: 50%; /* Make it circular */
     overflow: hidden;
     display: flex;
@@ -435,7 +467,7 @@ body {
 }
 
 .brand-sidebar:hover {
-    width: 200px; /* Expand the sidebar to show brand names */
+    width: 200px; 
 }
 
 .brand-sidebar ul {
@@ -532,3 +564,119 @@ body {
     text-decoration: none; /* Ensure no underline on hover */
 }
 
+
+.brand-cards-row {
+  display: flex;
+  width: 100%;
+  gap: 0;
+  margin: 0 0 32px 0;
+  padding: 0;
+  overflow-x: auto;
+}
+
+.brand-card {
+  flex: 1 1 0;
+  min-width: 300px;
+  height: 400px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.brand-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.18);
+}
+
+.brand-card-title {
+  position: relative;
+  color: #181818;
+  font-size: 2.5rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  margin: 36px 0 0 36px;
+  z-index: 1;
+  letter-spacing: 1px;
+}
+
+.brand-card:hover {
+  transform: scale(1.02);
+  z-index: 2;
+}
+
+.brand-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 220px) ;
+  column-gap: 10px;   
+  row-gap: 10px;      
+  width: 100%;
+  margin: 20px 0;
+}
+
+.brand-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-size: cover;
+  background-position: center;
+  text-decoration: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-height: 0;
+  min-width: 0;
+  width: 275px;
+  height: 200px;
+}
+
+.brand-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.18);
+}
+
+.brand-card-title {
+  position: relative;
+  color: #181818;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  margin: 24px 0 0 24px;
+  z-index: 1;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px rgba(255,255,255,0.7);
+}
+
+.brand-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  z-index: 2;
+}
+
+@media (max-width: 120px) {
+  .brand-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 180px);
+  }
+}
+@media (max-width: 70px) {
+  .brand-cards-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(10, 140px);
+    gap: 10px;
+  }
+  .brand-card-title {
+    font-size: 1.1rem;
+    margin: 12px 0 0 12px;
+  }
+}

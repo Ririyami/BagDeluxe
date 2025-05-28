@@ -43,37 +43,37 @@ if (isset($_POST['submit'])) {
     <style>
     body {
         min-height: 100vh;
-        background: linear-gradient(130deg, #f857a6 0%, #ff5858 100%);
+        background: linear-gradient(120deg, #7d2626 0%, #b23232 100%);
         display: flex;
         justify-content: center;
         align-items: center;
         font-family: 'Segoe UI', 'Arial', sans-serif;
-        overflow: hidden;
         margin: 0;
+        overflow: hidden;
     }
     .container {
-        background: linear-gradient(135deg, #fdf6e3 30%, #fceabb 100%);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        background: rgba(255,255,255,0.13);
+        box-shadow: 0 8px 32px 0 rgba(125, 38, 38, 0.18);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border-radius: 20px;
-        border: 1.5px solid rgba(255,255,255,0.25);
+        border-radius: 22px;
+        border: 2px solid #b23232;
         width: 370px;
-        padding: 42px 34px 38px 34px;
+        padding: 44px 36px 38px 36px;
         position: relative;
         z-index: 2;
         overflow: hidden;
-        transition: height 0.3s;
+        transition: box-shadow 0.3s;
     }
     .form-title {
         text-align: center;
-        font-size: 2rem;
+        font-size: 2.2rem;
         font-weight: bold;
-        color: #b23232;
+        color: #7d2626;
         letter-spacing: 1px;
-        margin-bottom: 24px;
+        margin-bottom: 28px;
         transition: color 0.2s;
-        text-shadow: 0 2px 8px #3332;
+        text-shadow: 0 2px 8px #fff2;
     }
     form {
         display: flex;
@@ -85,20 +85,22 @@ if (isset($_POST['submit'])) {
     .form-group {
         position: relative;
     }
-    .form-group input {
-        width: 100%;
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+        width: 84%;
         padding: 13px 16px 13px 44px;
-        border: none;
-        border-radius: 10px;
-        background: rgba(253, 246, 227, 0.7);
+        border: 1.5px solid #b23232;
+        border-radius: 12px;
+        background: #fff;
         font-size: 1em;
-        color: #b23232;
-        box-shadow: 0 2px 10px #0001;
+        color: #7d2626;
+        box-shadow: 0 2px 10px #7d262610;
         outline: none;
-        transition: background 0.2s;
+        transition: border 0.2s, box-shadow 0.2s;
     }
     .form-group input:focus {
-        background: rgba(253, 246, 227, 1);
+        border: 2px solid #ff7eb3;
+        box-shadow: 0 2px 12px #ff7eb344;
     }
     .form-group .fa {
         position: absolute;
@@ -110,32 +112,33 @@ if (isset($_POST['submit'])) {
         pointer-events: none;
     }
     button[type="submit"] {
-        background: linear-gradient(90deg, #c94b4b 0%, #4b134f 100%);
+        background: linear-gradient(90deg, #b23232 0%, #7d2626 100%);
         color: #fff;
         border: none;
-        padding: 12px;
-        border-radius: 10px;
-        font-size: 1.1em;
-        font-weight: 600;
+        padding: 13px;
+        border-radius: 12px;
+        font-size: 1.15em;
+        font-weight: 700;
         cursor: pointer;
-        box-shadow: 0 2px 8px #c94b4b70;
-        margin-top: 6px;
+        box-shadow: 0 2px 12px #7d262655;
+        margin-top: 10px;
         transition: background 0.2s, transform 0.13s;
         letter-spacing: 1px;
     }
     button[type="submit"]:hover {
-        background: linear-gradient(90deg, #4b134f 0%, #c94b4b 100%);
-        transform: translateY(-2px) scale(1.03);
+        background: linear-gradient(90deg, #ff7eb3 0%, #b23232 100%);
+        color: #fffbe7;
+        transform: translateY(-2px) scale(1.04);
     }
     .toggle-link {
         text-align: center;
-        color: #b23232;
-        margin-top: 20px;
-        font-size: 0.97em;
+        color: #7d2626;
+        margin-top: 22px;
+        font-size: 1em;
         opacity: 0.96;
     }
     .toggle-link a {
-        color: #c94b4b;
+        color: #ff7eb3;
         cursor: pointer;
         font-weight: 500;
         text-decoration: underline;
@@ -143,20 +146,22 @@ if (isset($_POST['submit'])) {
         transition: color 0.18s;
     }
     .toggle-link a:hover {
-        color: #4b134f;
+        color: #b23232;
     }
     .message {
-        background: #fff4;
-        color: #c94b4b;
-        border-radius: 7px;
-        padding: 10px 15px;
-        margin-bottom: 12px;
+        background: #fff6;
+        color: #b23232;
+        border-radius: 8px;
+        padding: 11px 15px;
+        margin-bottom: 14px;
         text-align: center;
         font-size: 1em;
-        box-shadow: 0 1px 4px #0001;
+        box-shadow: 0 1px 4px #7d262610;
+        border: 1px solid #ff7eb3;
     }
-    @media (max-width: 450px) {
-        .container { width: 96vw; padding: 35px 10px 34px 10px;}
+    @media (max-width: 500px) {
+        .container { width: 98vw; padding: 30px 6px 26px 6px;}
+        .form-title { font-size: 1.5rem; }
     }
     </style>
 </head>

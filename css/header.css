@@ -116,62 +116,130 @@
   height: 25rem;
 }
 
-/* Profile Section */
+/* Enhanced profile dropdown in header */
 .profile {
-    display: none; /* Hide by default */
     position: absolute;
     top: 100%;
-    right: 0;
+    right: 2rem;
     background: #fff;
-    padding: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 0.5rem;
-    z-index: 1000; /* Ensure it appears above other elements */
+    border-radius: 16px;
+    box-shadow: 0 4px 24px #0002;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    min-width: 270px;
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #7d2626;
+    animation: fadeIn 0.2s;
 }
 
 .profile.active {
-    display: block; /* Show when active */
+    display: flex;
+}
+
+.profile .name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #7d2626;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.profile .flex {
+    display: flex;
+    gap: 1.2rem;
+    width: 100%;
+    justify-content: center;
 }
 
 .profile .btn,
 .profile .delete-btn {
-    display: inline-block;
-    margin: 0.5rem 0;
-    padding: 0.5rem 1rem;
-    background: #381820;
+    background: #7d2626;
     color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px #0001;
+    text-decoration: none;
+    text-align: center;
 }
 
 .profile .btn:hover,
 .profile .delete-btn:hover {
-    background: #5a1e2d; /* Lighter pink on hover */
+    background: #a13c3c;
+    color: #fff;
 }
 
-.profile .name {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
+/* Login/Register Prompt Redesign */
 .profile .account {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    color: #666;
+    background: rgba(125, 38, 38, 0.18);
+    border: 2.5px solid #7d2626;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px #7d262620;
+    padding: 2.2rem 2.5rem 1.5rem 2.5rem;
+    margin: 2rem auto 0 auto;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
 }
 
 .profile .account a {
-    color: #682020;
+    display: inline-block;
+    background: linear-gradient(90deg, #b23232 0%, #7d2626 100%);
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    margin: 0 0.3rem;
     text-decoration: none;
+    box-shadow: 0 2px 8px #7d262655;
+    transition: background 0.2s, color 0.2s, transform 0.13s;
+    border: none;
 }
 
 .profile .account a:hover {
-    text-decoration: underline;
+    background: linear-gradient(90deg, #ff7eb3 0%, #b23232 100%);
+    color: #fffbe7;
+    transform: translateY(-2px) scale(1.04);
+}
+
+.profile .account span,
+.profile .account strong,
+.profile .account b {
+    color: #bdbdbd;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 0 0.5rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+@media (max-width: 600px) {
+    .profile {
+        right: 0.5rem;
+        left: 0.5rem;
+        min-width: unset;
+        width: calc(100vw - 1rem);
+        padding: 1.2rem 0.5rem;
+    }
 }
 
 /* Search Bar Container */
@@ -221,4 +289,20 @@
 /* Search Button Hover Effect */
 .search-btn:hover {
     color: #381820; /* Darker color on hover */
+}
+
+/* ...existing CSS... */
+
+.profile .user-img-container {
+   width: 80px; /* Adjust the size as needed */
+   height: 80px;
+   border-radius: 50%; /* Make it a circle */
+   overflow: hidden; /* Hide any part of the image that overflows the container */
+   margin: 0 auto 10px; /* Center the container horizontally */
+}
+
+.profile .user-img-container img {
+   width: 100%; /* Make the image fill the container */
+   height: 100%;
+   object-fit: cover; /* Ensure the image covers the entire container */
 }

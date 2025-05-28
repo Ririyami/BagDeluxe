@@ -15,6 +15,13 @@ if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
 }
 
 foreach ($_SESSION['cart'] as $item) {
+    // Check if 'pid' key exists
+    if (!isset($item['pid'])) {
+        echo "Error: 'pid' key missing in cart item. Cart data: ";
+        print_r($item); // Output the problematic cart item for debugging
+        continue; // Skip to the next item in the cart
+    }
+
     $product_id = $item['pid'];
     $name = $item['name'];
     $price = $item['price'];
@@ -24,10 +31,16 @@ foreach ($_SESSION['cart'] as $item) {
     // ✅ FIXED: Use correct column name 'stock_quantity'
     $stock_check = $conn->prepare("SELECT stock_quantity FROM inventory WHERE product_id = ?");
     $stock_check->execute([$product_id]);
+    
+    if ($stock_check->rowCount() == 0) {
+        echo "Error: Product with ID $product_id not found in inventory.";
+        continue; // Skip to the next item in the cart
+    }
+
     $stock = $stock_check->fetchColumn();
 
     if ($stock === false) {
-        die("Error: Product not found in inventory.");
+        die("Error: Could not fetch stock quantity.");
     }
 
     // Get existing quantity in user's cart (if any)

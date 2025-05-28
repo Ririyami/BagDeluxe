@@ -57,20 +57,110 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<form method="post" action="update_driver_profile.php" enctype="multipart/form-data" style="max-width: 400px; margin: auto;">
-    <h3>Update Profile</h3>
-    <input type="text" name="name" value="<?= htmlspecialchars($driver['name']) ?>" placeholder="Driver Name" required style="width:100%; padding:10px; margin-bottom:10px;">
-    <input type="text" name="number" value="<?= htmlspecialchars($driver['number']) ?>" placeholder="Contact Number" required style="width:100%; padding:10px; margin-bottom:10px;">
-    <input type="text" name="address" value="<?= htmlspecialchars($driver['address']) ?>" placeholder="Address" required style="width:100%; padding:10px; margin-bottom:10px;">
-    <select name="gender" required style="width:100%; padding:10px; margin-bottom:10px;">
-        <option value="Male" <?= $driver['gender'] === 'Male' ? 'selected' : '' ?>>Male</option>
-        <option value="Female" <?= $driver['gender'] === 'Female' ? 'selected' : '' ?>>Female</option>
-    </select>
-    <input type="file" name="drivers_picture" accept="image/*" style="width:100%; padding:10px; margin-bottom:10px;">
-    <button type="submit" style="padding:10px; width:100%;">Update Profile</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Driver Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff0000, #800000); /* Red gradient background */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-<!-- Back Button -->
-<div style="text-align: center; margin-top: 20px;">
-    <a href="driver_home.php" style="padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">Back</a>
-</div>
+        .container {
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white container */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            text-align: center;
+        }
+
+        h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white input fields */
+            color: white;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="password"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        select {
+            appearance: none; /* Remove default arrow */
+            background-image: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+            background-repeat: no-repeat;
+            background-position-x: 95%;
+            background-position-y: 50%;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d9534f; /* Red button */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #c9302c;
+        }
+
+        .login-link {
+            display: block;
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Update Profile</h3>
+        <form method="post" action="update_driver_profile.php" enctype="multipart/form-data">
+            <input type="text" name="name" value="<?= htmlspecialchars($driver['name']) ?>" placeholder="Driver Name" required>
+            <input type="text" name="number" value="<?= htmlspecialchars($driver['number']) ?>" placeholder="Contact Number" required>
+            <input type="text" name="address" value="<?= htmlspecialchars($driver['address']) ?>" placeholder="Address" required>
+            <select name="gender" required>
+                <option value="Male" <?= $driver['gender'] === 'Male' ? 'selected' : '' ?>>Male</option>
+                <option value="Female" <?= $driver['gender'] === 'Female' ? 'selected' : '' ?>>Female</option>
+            </select>
+            <input type="file" name="drivers_picture" accept="image/*">
+            <button type="submit">Update Profile</button>
+        </form>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="driver_home.php" style="padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">Back</a>
+        </div>
+    </div>
+</body>
+</html>

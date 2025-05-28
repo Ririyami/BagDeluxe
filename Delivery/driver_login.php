@@ -32,7 +32,95 @@ if (isset($_POST['login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Driver Login</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff0000, #800000); /* Red gradient background */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white container */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            text-align: center;
+        }
+
+        h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white input fields */
+            color: white;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="password"]::placeholder {
+            color: rgba(2, 2, 2, 0.7);
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d9534f; /* Red button */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #c9302c;
+        }
+
+        .toggle-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .toggle-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #5bc0de; /* Blue button */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-buttons button:hover {
+            background-color: #31b0d5;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -43,7 +131,6 @@ if (isset($_POST['login'])) {
             <button type="submit" name="login">Login</button>
         </form>
         <div class="toggle-buttons">
-            <button onclick="window.location.href='driver_login.php'">Login</button>
             <button onclick="window.location.href='driver_register.php'">Register</button>
         </div>
     </div>

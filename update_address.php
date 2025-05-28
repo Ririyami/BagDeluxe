@@ -9,18 +9,24 @@ if(isset($_SESSION['user_id'])){
 }else{
    $user_id = '';
    header('location:home.php');
-};
+   exit();
+}
 
 if(isset($_POST['submit'])){
 
-   $address = $_POST['flat'] .', '.$_POST['building'].', '.$_POST['area'].', '.$_POST['town'] .', '. $_POST['city'] .', '. $_POST['state'] .', '. $_POST['country'] .' - '. $_POST['pin_code'];
+   // Construct the address in the Philippines format
+   $address = $_POST['flat'] .', '.$_POST['building'].', '.$_POST['street'].', '.$_POST['barangay'] .', '. $_POST['city'] .', '. $_POST['province'] .', '. $_POST['country'] .' - '. $_POST['pin_code'];
    $address = filter_var($address, FILTER_SANITIZE_STRING);
 
+   // Update the user's address in the database
    $update_address = $conn->prepare("UPDATE `users` set address = ? WHERE id = ?");
    $update_address->execute([$address, $user_id]);
 
-   $message[] = 'address saved!';
+   $message[] = 'Address saved!';
 
+   // Refresh the page after saving
+   header('Location: checkout.php');
+   exit();
 }
 
 ?>
@@ -31,54 +37,41 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>update address</title>
+   <title>Update Address</title>
 
-   <!-- font awesome cdn link  -->
+   <!-- Font Awesome CDN link -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-   <!-- custom css file link  -->
+   <!-- Custom CSS file link -->
    <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
-   
+
 <?php include 'components/user_header.php' ?>
 
 <section class="form-container">
 
    <form action="" method="post">
-      <h3>your address</h3>
-      <input type="text" class="box" placeholder="flat no." required maxlength="50" name="flat">
-      <input type="text" class="box" placeholder="building no." required maxlength="50" name="building">
-      <input type="text" class="box" placeholder="area name" required maxlength="50" name="area">
-      <input type="text" class="box" placeholder="town name" required maxlength="50" name="town">
-      <input type="text" class="box" placeholder="city name" required maxlength="50" name="city">
-      <input type="text" class="box" placeholder="state name" required maxlength="50" name="state">
-      <input type="text" class="box" placeholder="country name" required maxlength="50" name="country">
-      <input type="number" class="box" placeholder="pin code" required max="999999" min="0" maxlength="6" name="pin_code">
-      <input type="submit" value="save address" name="submit" class="btn">
+      <h3>Your Address</h3>
+
+      <!-- Address input fields tailored to Philippines address format -->
+      <input type="text" class="box" placeholder="Flat/Unit No." maxlength="50" name="flat">
+      <input type="text" class="box" placeholder="Building Name" maxlength="50" name="building">
+      <input type="text" class="box" placeholder="Street Name" required maxlength="100" name="street">
+      <input type="text" class="box" placeholder="Barangay" required maxlength="50" name="barangay">
+      <input type="text" class="box" placeholder="City/Municipality" required maxlength="50" name="city">
+      <input type="text" class="box" placeholder="Province (optional)" maxlength="50" name="province">
+      <input type="text" class="box" placeholder="Country (should be 'Philippines')" value="Philippines" readonly name="country">
+      <input type="number" class="box" placeholder="Postal Code" required maxlength="6" min="0" max="999999" name="pin_code">
+
+      <input type="submit" value="Save Address" name="submit" class="btn">
    </form>
 
 </section>
 
-
-
-
-
-
-
-
-
-
 <?php include 'components/footer.php' ?>
 
-
-
-
-
-
-
-<!-- custom js file link  -->
+<!-- Custom JS file link -->
 <script src="js/script.js"></script>
 
 </body>

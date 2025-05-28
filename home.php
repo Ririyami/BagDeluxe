@@ -49,6 +49,16 @@ if(isset($_SESSION['user_id'])){
    <div class="swiper hero-slider">
 
       <div class="swiper-wrapper">
+         
+      <div class="swiper-slide slide">
+            <div class="content">
+
+               <a href="menu.php" class="btn">shop now</a>
+            </div>
+            <div class="image">
+               <img src="images/9866.jpg" alt="">
+            </div>
+         </div>
 
       <div class="swiper-slide slide">
             <div class="content">
@@ -56,7 +66,7 @@ if(isset($_SESSION['user_id'])){
                <a href="menu.php" class="btn">shop now</a>
             </div>
             <div class="image">
-               <img src="images/2222.png" alt="">
+               <img src="images/9876.gif" alt="">
             </div>
          </div>
 
@@ -66,7 +76,7 @@ if(isset($_SESSION['user_id'])){
                <a href="menu.php" class="btn">shop now</a>
             </div>
             <div class="image">
-               <img src="images/1111.png" alt="">
+               <img src="images/9999.gif" alt="">
             </div>
          </div>
 
@@ -76,51 +86,29 @@ if(isset($_SESSION['user_id'])){
                <a href="menu.php" class="btn">shop now</a>
             </div>
             <div class="image">
-               <img src="images/3333.png" alt="">
-            </div>
-         </div>
-
-         <div class="swiper-slide slide">
-            <div class="content">
-              
-               <a href="menu.php" class="btn">shop now</a>
-            </div>
-            <div class="image">
-               <img src="images/4444.png" alt="">
+               <img src="images/9987.gif" alt="">
             </div>
          </div>
 
       </div>
 
-      <div class="swiper-pagination"></div>
 
    </div>
 
 </section>
 
+      <div class="luxe-picks-section">
+         <h1>This Week’s Luxe Picks—Carry with Confidence</h1>
+         <hr class="luxe-divider">
+         <h2>Discover curated bags made to match your style and support your stride every step of the way.</h2>
+      </div>
+
+
+
+
 <section class="category">
 <div class="categories-container">
-   <!-- Brand Sidebar -->
-   <div class="brand-sidebar">
-      <ul>
-         <li><a href="category.php?brand=Celine"><img src="images/b4.jpg" alt="Brand 1"><span>Celine</span></a></li>
-         <li><a href="category.php?brand=Chanel"><img src="images/b5.jpg" alt="Brand 2"><span>Chanel</span></a></li>
-         <li><a href="category.php?brand=Chloé"><img src="images/b6.jpg" alt="Brand 3"><span>Chloé</span></a></li>
-         <li><a href="category.php?brand=Christian_Dior"><img src="images/b9.jpg" alt="Brand 4"><span>Christian Dior</span></a></li>
-         <li><a href="category.php?brand=Fendi"><img src="images/b8.png" alt="Brand 5"><span>Fendi</span></a></li>
-         <li><a href="category.php?brand=Gucci"><img src="images/b7.jpg" alt="Brand 6"><span>Gucci</span></a></li>
-         <li><a href="category.php?brand=Hermès"><img src="images/b1.jpg" alt="Brand 7"><span>Hermès</span></a></li>
-         <li><a href="category.php?brand=Louis_Vuitton"><img src="images/b2.jpg" alt="Brand 8"><span>Louis Vuitton</span></a></li>
-         <li><a href="category.php?brand=Prada"><img src="images/b0.jpg" alt="Brand 9"><span>Prada</span></a></li>
-         <li><a href="category.php?brand=Saint_Laurent"><img src="images/b3.jpg" alt="Brand 10"><span>Saint Laurent</span></a></li>
-      </ul>
-   </div>
-   
-   <!-- Categories Section -->
-<!--<h1 class="title" style="color: black;">categories</h1>-->
-
    <div class="box-container">
-
       <a href="category.php?category=Male Bags" class="box">
          <img src="images/men.png" alt="">
          <h3>Male Bags</h3>
@@ -132,8 +120,46 @@ if(isset($_SESSION['user_id'])){
       </a>
 
    </div>
-
+   
 </section>
+
+<section class="" style="background-color: #6d2323;">
+<div class="categories-container">
+   <div class="brand-cards-grid">
+      <a href="category.php?brand=Celine" class="brand-card" style="background-image: url('images/b4.jpg');">
+         <span class="brand-card-title">Celine</span>
+      </a>
+      <a href="category.php?brand=Chanel" class="brand-card" style="background-image: url('images/b5.jpg');">
+         <span class="brand-card-title">Chanel</span>
+      </a>
+      <a href="category.php?brand=Chloé" class="brand-card" style="background-image: url('images/b6.jpg');">
+         <span class="brand-card-title">Chloé</span>
+      </a>
+      <a href="category.php?brand=Christian_Dior" class="brand-card" style="background-image: url('images/b9.jpg');">
+         <span class="brand-card-title">Christian Dior</span>
+      </a>
+      <a href="category.php?brand=Fendi" class="brand-card" style="background-image: url('images/b8.png');">
+         <span class="brand-card-title">Fendi</span>
+      </a>
+      <a href="category.php?brand=Gucci" class="brand-card" style="background-image: url('images/b7.jpg');">
+         <span class="brand-card-title">Gucci</span>
+      </a>
+      <a href="category.php?brand=Hermès" class="brand-card" style="background-image: url('images/b1.jpg');">
+         <span class="brand-card-title">Hermès</span>
+      </a>
+      <a href="category.php?brand=Louis_Vuitton" class="brand-card" style="background-image: url('images/b2.jpg');">
+         <span class="brand-card-title">Louis Vuitton</span>
+      </a>
+      <a href="category.php?brand=Prada" class="brand-card" style="background-image: url('images/b0.jpg');">
+         <span class="brand-card-title">Prada</span>
+      </a>
+      <a href="category.php?brand=Saint_Laurent" class="brand-card" style="background-image: url('images/b3.jpg');">
+         <span class="brand-card-title">Saint Laurent</span>
+      </a>
+   </div>
+</div>
+</section>
+
 
 
 <section class="products">
