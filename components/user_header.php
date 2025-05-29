@@ -73,7 +73,7 @@ if (isset($message)) {
          <?php if (isset($user_id) && !empty($user_id) && $fetch_profile) { ?>
             <div class="user-img-container">
                <?php if (!empty($fetch_profile['profile_picture'])) { ?>
-                  <img src="user_imgs/<?= htmlspecialchars($fetch_profile['profile_picture']); ?>" alt="User Image">
+                  <img src="./user_imgs/<?= htmlspecialchars($fetch_profile['profile_picture']); ?>" alt="User Image">
                <?php } else { ?>
                   <img src="images/default-avatar.png" alt="Default Avatar">
                <?php } ?>
