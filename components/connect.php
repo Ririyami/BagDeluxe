@@ -4,11 +4,6 @@
 //  $user_name = 'root';
 //  $user_password = '';
 
-// $db_name = 'mysql:host=localhost;dbname=u866427573_bagdeluxe';
-// $user_name = 'u866427573_bagdeluxe';
-// $user_password = '@Qetu1357';
-
-
 $host = 'localhost';
 $db_name = 'u866427573_bagdeluxe';
 $user_name = 'u866427573_bagdeluxe';
@@ -20,11 +15,6 @@ try {
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
-
-
-// $conn = new PDO($db_name, $user_name, $user_password);
-
-
 
 ?>
  
