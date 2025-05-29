@@ -249,23 +249,25 @@ body {
 }
 
 .products .box-container .box {
-    width: 300px; /* Adjust the width of the box */
-    height: 500px; /* Let the height adjust based on content */
-    border: 1px solid #000000; /* Add a border */
-    border-radius: 10px; /* Add rounded corners */
-    padding: 1rem; /* Add padding inside the box */
-    text-align: center; /* Center the text */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add hover effect */
-    background-color: #ffffff;
+    position: relative;
+    width: 300px;
+    height: 500px;
+    border: 2px solid #381320;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    overflow: hidden;
 }
 
 .products .box-container .box img {
-    width: 100%; /* Make the image take the full width of the box */
-    height: 320px; /* Set a fixed height for the image */
-    object-fit: cover; /* Ensure the image fits nicely */
-    margin-bottom: 1rem; /* Add spacing below the image */
-    border-radius: 5px; /* Optional: Add rounded corners to the image */
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    transition: 0.3s ease;
 }
 
 .products .box-container .box h3 {
@@ -289,7 +291,20 @@ body {
     font-size: 1.2rem;
 }
  
-.products .box-container .box .fa-eye,
+.products .box-container .box .fa-eye{
+    position: absolute;
+    top:1rem;
+    height: 4rem;
+    width: 4rem;
+    line-height: 4.3rem;
+    border:var.2rem solid black;
+    background-color: white;
+    cursor: pointer;
+    font-size: 2rem;
+    color: black;
+    transition: .2s linear;
+    text-align: center;
+}
 .products .box-container .box .fa-shopping-cart{
     position: absolute;
     top:1rem;
@@ -305,7 +320,11 @@ body {
     text-align: center;
 }
  
-.products .box-container .box .fa-eye:hover,
+.products .box-container .box .fa-eye:hover{
+    background-color:white;
+    color: black;
+}
+ 
 .products .box-container .box .fa-shopping-cart:hover{
     background-color:white;
     color: black;
@@ -329,52 +348,94 @@ body {
     right: 1rem;
 }
  
-.products .box-container .box .cat{
-    font-size: 1rem;
+.products .box-container .box .cat {
+    font-size: 1.3rem;
     font-weight: bold;
-    color: #381320;             /*category name - in featured products*/
-    text-decoration: none;
+    color: #5a1e2d;
+    margin-bottom: 0.5rem;
+    text-align: center;
 }
- 
-.products .box-container .box .cat:hover{
-    color:black;
-    text-decoration: underline;
-}
- 
-.products .box-container .box .name{
-    font-size: 30px;
+
+.products .box-container .box .name {
+    font-size: 1.4rem;
     text-align: center;
     font-weight: bold;
-    color: black;        /*product name - in featured product*/
-    margin:1rem 0;
+    color: #1a1a1a;
+    margin: 0.5rem 0 1rem 0;
 }
- 
-.products .box-container .box .flex{
+
+.products .box-container .box .flex {
     display: flex;
     align-items: center;
-    gap:.5rem;
+    justify-content: flex-end;
+    gap: .5rem;
     margin-top: 1.5rem;
 }
- 
-.products .box-container .box .flex .price{
+
+.products .box-container .box .flex .price {
     margin-right: auto;
     font-size: 2rem;
     font-weight: bold;
-    color:#682020;      /*price name - in featured product*/
+    color: #7d2626;
+    display: flex;
+    align-items: center;
 }
- 
-.products .box-container .box .flex .price span{
-    color: #682020;                /*peso sign color*/
+
+.products .box-container .box .flex .price span {
+    color: #7d2626;
     font-size: 1.8rem;
+    margin-right: 0.2rem;
 }
- 
-.products .box-container .box .flex .qty{
-    padding:1rem;
-    border:.1rem solid black;
-    font-size: 1.8rem;
-    color:black;
-    height: 8px;
-    width: 50px;
+
+.products .box-container .box .flex .qty {
+    padding: 0.5rem 0.7rem;
+    border: 1.5px solid #7d2626;
+    font-size: 1.2rem;
+    color: #381320;
+    border-radius: 6px;
+    width: 55px;
+    text-align: center;
+    margin-right: 0.3rem;
+}
+
+.products .box-container .box .fa-eye {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 8px;
+    border: none;
+    background: #5a1e2d;
+    color: #fff;
+    font-size: 1.5rem;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px #0001;
+    cursor: pointer;
+    padding: 0;
+}
+
+.products .box-container .box .fa-shopping-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 8px;
+    border: none;
+    background: #5a1e2d;
+    color: #fff;
+    font-size: 1.5rem;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px #0001;
+    cursor: pointer;
+    padding: 0;
+}
+
+.products .box-container .box .fa-shopping-cart:hover {
+    background: #a13c3c;
+    color: #fffbe7;
+    transform: scale(1.08);
 }
  
 .products .box-container .box .flex .fa-edit{
@@ -421,35 +482,32 @@ body {
 }
  
 .products .more-btn{
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     text-align: center;
-    color: white;
 }
- 
-.products .cart-total{
-    display: flex;
-    align-items: center;
-    gap:1.5rem;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 3rem;
-    border:.2rem solid black;
-    padding:1rem;
+
+.products .more-btn .btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #7d2626 0%, #b23232 100%);
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding: 0.9rem 2.7rem;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 18px #7d262620;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, transform 0.13s, box-shadow 0.2s;
+    cursor: pointer;
 }
- 
-.products .cart-total p{
-    font-size: 2.5rem;
-    color:#777;
+
+.products .more-btn .btn:hover {
+    background: linear-gradient(90deg, #b23232 100%);
+    color: #fffbe7;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 8px 24px #7d262640;
 }
- 
-.products .cart-total p span{
-    color:#682020;
-}
- 
-.products .cart-total .btn{
-    margin-top: 0;
-}
- 
 
 /* Sidebar for Brands */
 .brand-sidebar {
@@ -561,7 +619,6 @@ body {
     background-color: #805858; /* Darker background on hover */
     color: #fff; /* Text color on hover */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-    text-decoration: none; /* Ensure no underline on hover */
 }
 
 
@@ -679,4 +736,67 @@ body {
     font-size: 1.1rem;
     margin: 12px 0 0 12px;
   }
+}
+/* Toast-style popup for .message */
+.message {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    left: auto;
+    max-width: 360px;
+    width: auto;
+    padding: 1.2rem 2.2rem 1.2rem 1.5rem;
+    background: #7d2626;
+    color: #fff;
+    font-size: 1.3rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 32px #0004;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: toastIn 0.4s cubic-bezier(.4,0,.2,1);
+    opacity: 0.97;
+}
+
+@keyframes toastIn {
+    from { transform: translateY(-40px) scale(0.95); opacity: 0; }
+    to   { transform: translateY(0) scale(1); opacity: 0.97; }
+}
+
+.message span {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.message i {
+    font-size: 1.6rem;
+    color: #fffbe7;
+    cursor: pointer;
+    margin-left: 1.2rem;
+    transition: color 0.2s;
+}
+
+.message i:hover {
+    color: #ffd700;
+}
+
+@media (max-width: 600px) {
+    .message {
+        right: 8px;
+        left: 8px;
+        top: 12px;
+        max-width: 98vw;
+        font-size: 1rem;
+        padding: 1rem 1.2rem 1rem 1rem;
+    }
+}
+.empty{
+   border:var(--border);
+   padding:1.5rem;
+   text-align: center;
+   width: 100%;
+   font-size: 2rem;
+   text-transform: capitalize;
+   color:var(--red);
 }

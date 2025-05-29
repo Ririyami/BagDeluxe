@@ -197,11 +197,52 @@ $category = $_GET['category'] ?? '';
       background: #f5eaea;
       color: #9d3434;
    }
+   .brand-sidebar ul li a:hover {
+      background: #fbeaea;
+    }
+.brand-sidebar ul li a:hover img {
+      transform: scale(1.13);
+      box-shadow: 0 4px 16px #b2323233;
+      border-color: #7d2626;
+    }
+
+    .brand-sidebar ul li a:hover span {
+      color: #b23232;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .brand-sidebar ul li img {
+      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+    }
+
+    .brand-sidebar ul li span {
+      transition: color 0.18s, letter-spacing 0.18s;
+    }
+
    </style>
 </head>
 <body>
 
 <?php include 'components/user_header.php'; ?>
+
+<section class="category">
+<div class="categories-container">
+   <div class="brand-sidebar">
+      <ul>
+         <li><a href="category.php?brand=Celine"><img src="images/b4.jpg" alt=""><span>Celine</span></a></li>
+         <li><a href="category.php?brand=Chanel"><img src="images/b5.jpg" alt=""><span>Chanel</span></a></li>
+         <li><a href="category.php?brand=Chloé"><img src="images/b6.jpg" alt=""><span>Chloé</span></a></li>
+         <li><a href="category.php?brand=Christian_Dior"><img src="images/b9.jpg" alt=""><span>Christian Dior</span></a></li>
+         <li><a href="category.php?brand=Fendi"><img src="images/b8.png" alt=""><span>Fendi</span></a></li>
+         <li><a href="category.php?brand=Gucci"><img src="images/b7.jpg" alt=""><span>Gucci</span></a></li>
+         <li><a href="category.php?brand=Hermès"><img src="images/b1.jpg" alt=""><span>Hermès</span></a></li>
+         <li><a href="category.php?brand=Louis_Vuitton"><img src="images/b2.jpg" alt=""><span>Louis Vuitton</span></a></li>
+         <li><a href="category.php?brand=Prada"><img src="images/b0.jpg" alt=""><span>Prada</span></a></li>
+         <li><a href="category.php?brand=Saint_Laurent"><img src="images/b3.jpg" alt=""><span>Saint Laurent</span></a></li>
+      </ul>
+   </div>
+</div>
+</section>
 
 <section class="products">
    <h1 class="title">
@@ -299,6 +340,24 @@ $category = $_GET['category'] ?? '';
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 <script src="js/script.js"></script>
 <script>
+document.addEventListener('DOMContentLoaded', () => {
+   const sidebar = document.querySelector('.brand-sidebar');
+   const header = document.querySelector('.header');
+   if (sidebar && header) {
+      sidebar.style.top = `${header.offsetHeight}px`;
+
+      let lastScrollY = window.scrollY;
+      window.addEventListener('scroll', () => {
+         if (window.scrollY > lastScrollY && window.scrollY > header.offsetHeight) {
+            sidebar.style.top = '0';
+         } else {
+            sidebar.style.top = `${header.offsetHeight}px`;
+         }
+         lastScrollY = window.scrollY;
+      });
+   }
+});
+
 function addToCart(pid, name, price, image, qty) {
     fetch('add_to_session_cart.php', {
         method: 'POST',
@@ -306,7 +365,7 @@ function addToCart(pid, name, price, image, qty) {
         body: JSON.stringify({ pid, name, price, image, qty: parseInt(qty) || 1 })
     })
     .then(res => res.json())
-    .then(data => {
+    .then data => {
         if (data.success) {
             alert("Item added to cart!");
             location.reload();

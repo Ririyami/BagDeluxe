@@ -153,6 +153,49 @@ $user_id = $_SESSION['user_id'] ?? '';
       width: 100%;
       text-align: center;
     }
+
+    .categories-container {
+      margin-left: 130px; /* sidebar width + some gap */
+    }
+    .products {
+      margin-left: 130px;
+    }
+
+    .brand-sidebar ul li a {
+      display: flex;
+      flex-direction: row;         /* Change from column to row */
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;                   /* Space between name and image */
+      padding: 8px 10px;
+      border-radius: 12px;
+      transition: background 0.18s;
+      text-decoration: none;
+    }
+
+    .brand-sidebar ul li a:hover {
+      background: #fbeaea;
+    }
+
+    .brand-sidebar ul li a:hover img {
+      transform: scale(1.13);
+      box-shadow: 0 4px 16px #b2323233;
+      border-color: #7d2626;
+    }
+
+    .brand-sidebar ul li a:hover span {
+      color: #b23232;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .brand-sidebar ul li img {
+      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+    }
+
+    .brand-sidebar ul li span {
+      transition: color 0.18s, letter-spacing 0.18s;
+    }
    </style>
 </head>
 <body>

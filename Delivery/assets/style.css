@@ -3,12 +3,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #682020;
 }
 
 /* Header */
 .header {
-    background-color: #d9534f;
+    background-color: #7d2626;
     color: white;
     padding: 15px;
     text-align: center;
@@ -25,12 +25,14 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 2px solid #d9534f;
+    border: 2px solid #b23232;
+    background: #fff;
 }
 
 .profile h2 {
     margin: 10px 0;
     font-size: 16px;
+    color: #b23232;
 }
 
 /* Orders Section */
@@ -38,63 +40,68 @@ body {
     max-width: 90%;
     margin: 15px auto;
     padding: 15px;
-    background-color: white;
+    background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(125, 38, 38, 0.08);
 }
 
 .order {
-    border: 1px solid #ddd;
+    border: 1px solid #b23232;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
+    background: #fff;
 }
 
 .order h3 {
     margin: 0;
-    color: #d9534f;
+    color: #7d2626;
     font-size: 16px;
 }
 
 .order p {
     margin: 5px 0;
     font-size: 14px;
+    color: #682020;
 }
 
 .view-receipt {
     display: inline-block;
     padding: 8px 15px;
-    background-color: #d9534f;
+    background-color: #b23232;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     margin-top: 10px;
     font-size: 14px;
+    transition: background 0.2s;
 }
 
 .view-receipt:hover {
-    background-color: #c9302c;
+    background-color: #7d2626;
+    color: #fffbe7;
 }
 
 /* Sidebar (Always Visible) */
 .dashboard {
     width: 200px;
-    background-color: #d9534f;
+    background-color: #7d2626;
     color: white;
     height: 100vh;
     padding: 15px;
     box-sizing: border-box;
     position: fixed;
     top: 0;
-    left: 0; /* Always visible */
+    left: 0;
     z-index: 1000;
-    transition: none; /* No transition needed */
+    transition: none;
 }
 
 .dashboard h2 {
     text-align: center;
     margin-bottom: 15px;
     font-size: 18px;
+    color: #fff;
 }
 
 .dashboard a {
@@ -103,20 +110,26 @@ body {
     text-decoration: none;
     padding: 8px 10px;
     margin-bottom: 10px;
-    background-color: #c9302c;
+    background-color: #b23232;
     border-radius: 5px;
     text-align: center;
     font-size: 14px;
+    transition: background 0.2s;
 }
 
 .dashboard a.logout {
     margin-top: 15px;
-    background-color: #c9302c;
+    background-color: #682020;
+}
+
+.dashboard a:hover {
+    background-color: #ff7eb3;
+    color: #7d2626;
 }
 
 /* Content */
 .content {
-    margin-left: 220px; /* Adjust content to account for the sidebar */
+    margin-left: 220px;
     padding: 15px;
     box-sizing: border-box;
 }
@@ -127,7 +140,7 @@ body {
     position: fixed;
     top: 10px;
     left: 10px;
-    background-color: #d9534f;
+    background-color: #7d2626;
     color: white;
     border: none;
     border-radius: 5px;
@@ -141,15 +154,15 @@ body {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background-color: white;
+    background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(125, 38, 38, 0.08);
     text-align: center;
 }
 
 .scan-container h2 {
     font-size: 18px;
-    color: #d9534f;
+    color: #b23232;
     margin-bottom: 20px;
 }
 
@@ -164,26 +177,28 @@ body {
 .scan-container input[type="text"] {
     padding: 10px;
     font-size: 14px;
-    border: 1px solid #ddd;
+    border: 1px solid #b23232;
     border-radius: 5px;
     width: 70%;
     max-width: 300px;
     box-sizing: border-box;
+    color: #7d2626;
 }
 
 .scan-container button {
     padding: 10px 20px;
     font-size: 14px;
-    background-color: #d9534f;
+    background-color: #7d2626;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s;
 }
 
 .scan-container button:hover {
-    background-color: #c9302c;
+    background-color: #b23232;
+    color: #fffbe7;
 }
 
 /* Responsive Design for Mobile */
@@ -193,13 +208,13 @@ body {
     }
 
     .dashboard {
-        width: 100%; /* Full width on mobile */
+        width: 100%;
         height: auto;
         position: relative;
     }
 
     .content {
-        margin-left: 0; /* No margin on mobile */
+        margin-left: 0;
         padding: 10px;
     }
 
@@ -247,26 +262,27 @@ body {
     }
 
     .scan-container input[type="text"] {
-        width: 100%; /* Full width on mobile */
+        width: 100%;
     }
 
     .scan-container button {
-        width: 100%; /* Full width on mobile */
+        width: 100%;
     }
 }
+
 /* Login Panel */
 .login-container {
     max-width: 400px;
     margin: 60px auto;
-    background-color: white;
+    background-color: #fff;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(125, 38, 38, 0.08);
     text-align: center;
 }
 
 .login-container h2 {
-    color: #d9534f;
+    color: #b23232;
     margin-bottom: 25px;
     font-size: 22px;
 }
@@ -276,30 +292,32 @@ body {
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
+    border: 1px solid #b23232;
     border-radius: 6px;
     font-size: 14px;
     box-sizing: border-box;
+    color: #7d2626;
 }
 
 .login-container button {
     width: 100%;
     padding: 12px;
-    background-color: #d9534f;
+    background-color: #7d2626;
     color: white;
     border: none;
     border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s;
 }
 
 .login-container button:hover {
-    background-color: #c9302c;
+    background-color: #b23232;
+    color: #fffbe7;
 }
 
 .login-container p.error {
-    color: red;
+    color: #b23232;
     font-size: 14px;
     margin-top: 10px;
 }

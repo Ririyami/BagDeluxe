@@ -28,6 +28,94 @@ include 'components/add_cart.php';
    <!-- custom css file link -->
    <link rel="stylesheet" href="css/style.css">
 
+   <style>
+      /* Product Card Quick View Icon Top Right */
+      .products .box-container .box {
+         position: relative;
+      }
+
+      .products .box-container .box .fa-eye {
+         position: absolute;
+         top: 1.2rem;
+         right: 1.2rem;
+         z-index: 10;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: 2.7rem;
+         height: 2.7rem;
+         font-size: 1.5rem;
+         border-radius: 50%;
+         border: 3px solid #381320;
+         background: #fff;
+         color: #381320;
+         transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+         box-shadow: 0 2px 8px #0001;
+      }
+
+      .products .box-container .box .fa-eye:hover {
+         background: #381320;
+         color: #fff;
+         box-shadow: 0 4px 16px #38132033;
+      }
+      .products .box-container .box .fa-shopping-cart {
+         position: static; /* Remove absolute positioning */
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         margin-left: 0.5rem;
+         width: 2.5rem;
+         height: 2.5rem;
+         border-radius: 5px; /* <-- round the cart button */
+         border: 2px solid #7d2626;
+         background-color: #5a1e2d;
+         color: #fff;
+         cursor: pointer;
+         font-size: 1.5rem;
+         transition: background 0.2s, color 0.2s, transform 0.2s;
+         box-shadow: 0 2px 8px #0001;
+         padding: 0;
+         vertical-align: middle;
+      }
+
+      .products .box-container .box .fa-shopping-cart:hover {
+         background-color: #a13c3c;
+         color: #fffbe7;
+         transform: scale(1.08);
+      }
+      .products .box-container .box img {
+         width: 100%;
+         height: 320px;
+         object-fit: cover;
+         margin-bottom: 1rem;
+         border-radius: 5px;
+         transition: 0.3s ease;
+      }
+
+      .products .box-container .box:hover img {
+         transform: scale(1.05); /* Slight zoom effect on hover */
+      }
+
+      .products .box-container .box {
+         position: relative;
+         width: 300px;
+         height: 505px;
+         border: var(--border);
+         border-radius: 5px; /* <-- round the box */
+         padding: 1rem;
+         text-align: center;
+         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         background-color: #ffffff;
+         overflow: hidden;
+      }
+
+      .products .box-container .box:hover {
+         transform: scale(1.05);
+         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+   </style>
+
 </head>
 <body>
    
@@ -65,13 +153,13 @@ include 'components/add_cart.php';
          <input type="hidden" name="price" value="<?= $fetch_products['price']; ?>">
          <input type="hidden" name="image" value="<?= $fetch_products['image']; ?>">
          <a href="quick_view.php?pid=<?= $fetch_products['id']; ?>" class="fas fa-eye"></a>
-         <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
          <img src="uploaded_img/<?= $fetch_products['image']; ?>" alt="">
          <a href="category.php?category=<?= $fetch_products['category']; ?>" class="cat"><?= $fetch_products['category']; ?></a>
          <div class="name"><?= $fetch_products['name']; ?></div>
          <div class="flex">
-            <div class="price"><span>$</span><?= $fetch_products['price']; ?></div>
+            <div class="price"><span>₱</span><?= $fetch_products['price']; ?></div>
             <input type="number" name="qty" class="qty" min="1" max="99" value="1" maxlength="2">
+            <button type="submit" class="fas fa-shopping-cart" name="add_to_cart"></button>
          </div>
       </form>
       <?php

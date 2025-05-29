@@ -317,25 +317,25 @@ $grand_total = 0;
 
 .products .box-container .box .top-actions {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-between; /* left ug right */
     position: absolute;
     top: 1rem;
     left: 1rem;
     right: 1rem;
     z-index: 20;
-    gap: 0.5rem;
+    gap: 0.7rem;
+    width: auto;
+    pointer-events: none;
 }
 
-.products .box-container .box .cart-check {
-    width: 1.3rem;
-    height: 1.3rem;
-    accent-color: #381320;
-    cursor: pointer;
-    margin: 0;
+.products .box-container .box .fa-eye,
+.products .box-container .box .delete-btn {
+    pointer-events: auto;
 }
 
 .products .box-container .box .fa-eye {
+    order: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -347,8 +347,8 @@ $grand_total = 0;
     background: #fff;
     color: #381320;
     transition: background 0.2s, color 0.2s;
-    margin-top: 1.9rem;
-    margin-right: .5rem;
+    margin-top: .1rem;
+    margin-left: 12.8rem;
 }
 
 .products .box-container .box .fa-eye:hover {
@@ -357,12 +357,13 @@ $grand_total = 0;
 }
 
 .products .box-container .box .delete-btn {
+    order: 2;
     background: #381820;
     color: #fff;
     border: .15rem solid black;
     border-radius: 50%;
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -371,6 +372,8 @@ $grand_total = 0;
     padding: 0;
     transition: background 0.2s, color 0.2s;
     position: relative;
+    margin-top: .1rem;
+    margin-right: 12.7rem;
 }
 
 .products .box-container .box .delete-btn:after {
@@ -425,10 +428,7 @@ $grand_total = 0;
       
       <form action="" method="post" class="box">
          <div class="top-actions">
-            <div class="actions-left">
-               <input type="checkbox" name="selected_items[]" value="<?= $fetch_cart['id']; ?>" class="cart-check">
-               <a href="quick_view.php?pid=<?= $fetch_cart['pid']; ?>" class="fas fa-eye"></a>
-            </div>
+            <a href="quick_view.php?pid=<?= $fetch_cart['pid']; ?>" class="fas fa-eye"></a>
             <button type="submit" name="delete" class="delete-btn" onclick="return confirm('delete this item?');"></button>
          </div>
          <input type="hidden" name="cart_id" value="<?= $fetch_cart['id']; ?>">

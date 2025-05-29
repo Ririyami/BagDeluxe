@@ -68,8 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #ff0000, #800000); /* Red gradient background */
-            color: white;
+            background: linear-gradient(to right, #682020, #b23232); /* Your signature maroon gradient */
+            color: #7d2626;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -77,70 +77,135 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white container */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.13); /* Semi-transparent white container */
+            padding: 24px 24px 18px 24px;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(125, 38, 38, 0.18);
             width: 400px;
             text-align: center;
         }
 
         h3 {
-            color: white;
+            color: #7d2626;
             margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px #fff2;
         }
 
         input[type="text"],
         input[type="password"],
         select {
             width: 100%;
-            padding: 10px;
+            padding: 13px 16px;
             margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white input fields */
-            color: white;
+            border: 1.5px solid #b23232;
+            border-radius: 12px;
+            background-color: #fff;
+            color: #7d2626;
             box-sizing: border-box;
+            font-size: 1em;
+            box-shadow: 0 2px 10px #7d262610;
+            outline: none;
+            transition: border 0.2s, box-shadow 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        select:focus {
+            border: 2px solid #ff7eb3;
+            box-shadow: 0 2px 12px #ff7eb344;
         }
 
         input[type="text"]::placeholder,
         input[type="password"]::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+            color: #b23232;
+            opacity: 0.7;
         }
 
         select {
-            appearance: none; /* Remove default arrow */
-            background-image: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="#b23232" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
             background-repeat: no-repeat;
             background-position-x: 95%;
             background-position-y: 50%;
         }
 
+        input[type="file"] {
+            background: #fff;
+            border-radius: 12px;
+            padding: 10px;
+            color: #7d2626;
+            border: 1.5px solid #b23232;
+            font-size: 1em;
+            margin: 10px 0;
+        }
+
         button {
             width: 100%;
-            padding: 10px;
+            padding: 13px;
             margin-top: 10px;
             border: none;
-            border-radius: 5px;
-            background-color: #d9534f; /* Red button */
-            color: white;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #b23232 0%, #7d2626 100%);
+            color: #fff;
+            font-size: 1.15em;
+            font-weight: 700;
             cursor: pointer;
-            transition: background-color 0.3s;
+            box-shadow: 0 2px 12px #7d262655;
+            transition: background 0.2s, transform 0.13s;
+            letter-spacing: 1px;
         }
 
         button:hover {
-            background-color: #c9302c;
+            background: linear-gradient(90deg, #ff7eb3 0%, #b23232 100%);
+            color: #fffbe7;
+            transform: translateY(-2px) scale(1.04);
         }
 
         .login-link {
             display: block;
             margin-top: 20px;
-            color: white;
+            color: #7d2626;
             text-decoration: none;
+            font-weight: 500;
+            text-align: center;
+            transition: color 0.2s;
         }
 
         .login-link:hover {
+            color: #b23232;
             text-decoration: underline;
+        }
+
+        .message {
+            background: #fff6;
+            color: #b23232;
+            border-radius: 8px;
+            padding: 11px 15px;
+            margin-bottom: 14px;
+            text-align: center;
+            font-size: 1em;
+            box-shadow: 0 1px 4px #7d262610;
+            border: 1px solid #ff7eb3;
+            width: 100%;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #b23232;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .back-link:hover {
+            background: #7d2626;
+            color: #fffbe7;
         }
     </style>
 </head>
