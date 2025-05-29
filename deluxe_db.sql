@@ -808,3 +808,6 @@ COMMIT;
 
 ALTER TABLE `users` ADD COLUMN `address` TEXT NOT NULL;
 
+ALTER TABLE `inventory` ADD COLUMN `brand_name` VARCHAR (100);
+
+ALTER TABLE `inventory` MODIFY image TEXT;
