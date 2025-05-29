@@ -16,6 +16,7 @@ $stmt = $conn->prepare("SELECT * FROM drivers WHERE id = ?");
 $stmt->execute([$driver_id]);
 $driver = $stmt->fetch(PDO::FETCH_ASSOC);
 
+$message = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $number = $_POST['number'];
@@ -30,33 +31,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Ensure the directory exists
         if (!is_dir('../drivers_profile')) {
-            mkdir('../drivers_profile', 0777, true); // Create the directory with proper permissions
+            mkdir('../drivers_profile', 0777, true);
         }
 
         // Move the uploaded file to the correct folder
         if (move_uploaded_file($profile_picture_tmp, $profile_picture_folder)) {
-            $drivers_picture = $profile_picture; // Use the new uploaded file
+            $drivers_picture = $profile_picture;
         } else {
-            echo "<p style='color:red; text-align:center;'>Failed to upload profile picture.</p>";
-            $drivers_picture = $driver['drivers_picture']; // Use the existing profile picture
+            $message = "<span style='color:#b23232;'>Failed to upload profile picture.</span>";
+            $drivers_picture = $driver['drivers_picture'];
         }
     } else {
-        $drivers_picture = $driver['drivers_picture'] ?? ''; // Use the existing profile picture or set to empty
+        $drivers_picture = $driver['drivers_picture'] ?? '';
     }
 
     // Update driver details
     $update_stmt = $conn->prepare("UPDATE drivers SET name = ?, number = ?, address = ?, gender = ?, drivers_picture = ? WHERE id = ?");
     if ($update_stmt->execute([$name, $number, $address, $gender, $drivers_picture, $driver_id])) {
-        echo "<p style='color:green; text-align:center;'>Profile updated successfully!</p>";
+        $message = "<span style='color:green;'>Profile updated successfully!</span>";
         // Refresh driver details
         $stmt->execute([$driver_id]);
         $driver = $stmt->fetch(PDO::FETCH_ASSOC);
     } else {
-        echo "<p style='color:red; text-align:center;'>Failed to update profile.</p>";
+        $message = "<span style='color:#b23232;'>Failed to update profile.</span>";
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #682020, #b23232); /* Your signature maroon gradient */
+            background: linear-gradient(to right, #682020, #b23232);
             color: #7d2626;
             display: flex;
             justify-content: center;
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.13); /* Semi-transparent white container */
+            background-color: rgba(255, 255, 255, 0.13);
             padding: 24px 24px 18px 24px;
             border-radius: 18px;
             box-shadow: 0 8px 32px 0 rgba(125, 38, 38, 0.18);
@@ -189,7 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 1em;
             box-shadow: 0 1px 4px #7d262610;
             border: 1px solid #ff7eb3;
-            width: 100%;
+            width: 91%;
         }
 
         .back-link {
@@ -212,6 +212,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container">
         <h3>Update Profile</h3>
+        <?php if (!empty($message)): ?>
+            <div class="message"><?= $message ?></div>
+        <?php endif; ?>
         <form method="post" action="update_driver_profile.php" enctype="multipart/form-data">
             <input type="text" name="name" value="<?= htmlspecialchars($driver['name']) ?>" placeholder="Driver Name" required>
             <input type="text" name="number" value="<?= htmlspecialchars($driver['number']) ?>" placeholder="Contact Number" required>
@@ -224,7 +227,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit">Update Profile</button>
         </form>
         <div style="text-align: center; margin-top: 20px;">
-            <a href="driver_home.php" style="padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">Back</a>
+            <a href="driver_home.php" class="back-link">Back</a>
         </div>
     </div>
 </body>
