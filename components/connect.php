@@ -15,7 +15,7 @@ try {
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
-
+// asd
 $conn = new PDO($db_name, $user_name, $user_password);
 
 ?>
